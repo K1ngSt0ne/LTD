@@ -29,7 +29,7 @@ namespace LTD
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.image_rename = new System.Windows.Forms.PictureBox();
             this.previous_image = new System.Windows.Forms.Button();
             this.opennewwindow = new System.Windows.Forms.Button();
             this.next_image = new System.Windows.Forms.Button();
@@ -38,18 +38,18 @@ namespace LTD
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.find_directoty_path = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // image_rename
             // 
-            this.pictureBox1.Image = global::LTD.Properties.Resources._0НГЮК_250_009_Данные_электрические_на_ас__двигатель_типа_АОД_630_4У1_;
-            this.pictureBox1.Location = new System.Drawing.Point(46, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(658, 749);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.image_rename.Image = global::LTD.Properties.Resources._0НГЮК_250_009_Данные_электрические_на_ас__двигатель_типа_АОД_630_4У1_;
+            this.image_rename.Location = new System.Drawing.Point(46, 23);
+            this.image_rename.Name = "image_rename";
+            this.image_rename.Size = new System.Drawing.Size(658, 749);
+            this.image_rename.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image_rename.TabIndex = 0;
+            this.image_rename.TabStop = false;
             // 
             // previous_image
             // 
@@ -100,6 +100,7 @@ namespace LTD
             this.list_of_files.Name = "list_of_files";
             this.list_of_files.Size = new System.Drawing.Size(382, 196);
             this.list_of_files.TabIndex = 5;
+            this.list_of_files.SelectedIndexChanged += new System.EventHandler(this.list_of_files_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -145,11 +146,11 @@ namespace LTD
             this.Controls.Add(this.next_image);
             this.Controls.Add(this.opennewwindow);
             this.Controls.Add(this.previous_image);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.image_rename);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +158,7 @@ namespace LTD
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox image_rename;
         private System.Windows.Forms.Button previous_image;
         private System.Windows.Forms.Button opennewwindow;
         private System.Windows.Forms.Button next_image;
