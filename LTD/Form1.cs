@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 
 namespace LTD
 {
@@ -23,6 +24,7 @@ namespace LTD
            // MessageBox.Show("HAHA");
         }
         string choosen_path;
+        ArrayList imglist = new ArrayList();
         private void find_directoty_path_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
@@ -35,12 +37,16 @@ namespace LTD
                 foreach (FileInfo fi in files)
                 {
                     list_of_files.Items.Add(fi.ToString());
+                    imglist.Add(fi.ToString());
                 }
+                if (imglist.Count>0)
+                    image_rename.Image=LoadImg(choosen_path + "\\" + imglist[0].ToString());
             }
         }
 
         private void list_of_files_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //у выбранного элепмента будет индекс. По нему можно узнать куда переключаться. По умолчанию индекс будет 0
             string selectedImage = choosen_path+ "\\" + list_of_files.SelectedItem.ToString();
             image_rename.Image = LoadImg(selectedImage);
         }

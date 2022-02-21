@@ -43,7 +43,6 @@ namespace LTD
             // 
             // image_rename
             // 
-            this.image_rename.Image = global::LTD.Properties.Resources._0НГЮК_250_009_Данные_электрические_на_ас__двигатель_типа_АОД_630_4У1_;
             this.image_rename.Location = new System.Drawing.Point(46, 23);
             this.image_rename.Name = "image_rename";
             this.image_rename.Size = new System.Drawing.Size(658, 749);
