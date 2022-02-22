@@ -95,5 +95,10 @@ namespace LTD
                 image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
             }
         }
+
+        private void five_tl_button_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
