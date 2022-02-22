@@ -23,14 +23,19 @@ namespace LTD
         {
            // MessageBox.Show("HAHA");
         }
-        string choosen_path;
-        ArrayList imglist = new ArrayList();
+
+
+        string choosen_path; //выбранный путь до файла, без него не сможем загузрить в pictureBox
+        ArrayList imglist = new ArrayList(); //храним названия наших файлов, для переключения по кнопкам
+        int img_index = 0; //индекс картинки, для адекватного переключения по кнопкам
+
+
         private void find_directoty_path_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
             if (FBD.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(FBD.SelectedPath);
+                //MessageBox.Show(FBD.SelectedPath);
                 DirectoryInfo dir = new DirectoryInfo(FBD.SelectedPath);
                 choosen_path=dir.ToString();
                 FileInfo[] files = dir.GetFiles("*.jpg");
@@ -40,13 +45,14 @@ namespace LTD
                     imglist.Add(fi.ToString());
                 }
                 if (imglist.Count>0)
-                    image_rename.Image=LoadImg(choosen_path + "\\" + imglist[0].ToString());
+                    image_rename.Image=LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
             }
         }
 
         private void list_of_files_SelectedIndexChanged(object sender, EventArgs e)
         {
             //у выбранного элепмента будет индекс. По нему можно узнать куда переключаться. По умолчанию индекс будет 0
+            img_index = list_of_files.SelectedIndex;
             string selectedImage = choosen_path+ "\\" + list_of_files.SelectedItem.ToString();
             image_rename.Image = LoadImg(selectedImage);
         }
@@ -60,6 +66,34 @@ namespace LTD
                 res = Image.FromFile(image_name);
             }
             return res;
+        }
+
+        private void next_image_Click(object sender, EventArgs e)
+        {
+            if (img_index + 1 > imglist.Count-1)
+            {
+                img_index = 0;
+                image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            }
+            else
+            {
+                img_index = img_index+1;
+                image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            }
+        }
+
+        private void previous_image_Click(object sender, EventArgs e)
+        {
+            if (img_index - 1 < 0)
+            {
+                img_index = imglist.Count-1;
+                image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            }
+            else
+            {
+                img_index = img_index - 1;
+                image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            }
         }
     }
 }

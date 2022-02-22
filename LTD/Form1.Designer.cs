@@ -59,6 +59,7 @@ namespace LTD
             this.previous_image.TabIndex = 1;
             this.previous_image.Text = "Предущее изображение";
             this.previous_image.UseVisualStyleBackColor = true;
+            this.previous_image.Click += new System.EventHandler(this.previous_image_Click);
             // 
             // opennewwindow
             // 
@@ -79,6 +80,7 @@ namespace LTD
             this.next_image.TabIndex = 3;
             this.next_image.Text = "Следующее изображение";
             this.next_image.UseVisualStyleBackColor = true;
+            this.next_image.Click += new System.EventHandler(this.next_image_Click);
             // 
             // exit_button
             // 
