@@ -100,5 +100,10 @@ namespace LTD
         {
 
         }
+
+        private void clear_text_box_Click(object sender, EventArgs e)
+        {
+            rename_file_textbox.Text = "";
+        }
     }
 }

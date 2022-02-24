@@ -184,6 +184,7 @@ namespace LTD
             this.clear_text_box.TabIndex = 12;
             this.clear_text_box.Text = "Очистить";
             this.clear_text_box.UseVisualStyleBackColor = true;
+            this.clear_text_box.Click += new System.EventHandler(this.clear_text_box_Click);
             // 
             // panel1
             // 
@@ -290,7 +291,7 @@ namespace LTD
             this.Controls.Add(this.previous_image);
             this.Controls.Add(this.image_rename);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Архив технической документации";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.image_rename)).EndInit();
             this.panel1.ResumeLayout(false);
