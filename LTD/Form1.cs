@@ -98,12 +98,40 @@ namespace LTD
 
         private void five_tl_button_Click(object sender, EventArgs e)
         {
-
+            rename_file_textbox.Text = "5ТЛ.";
         }
 
         private void clear_text_box_Click(object sender, EventArgs e)
         {
             rename_file_textbox.Text = "";
+        }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void reverse_button_Click(object sender, EventArgs e)
+        {
+            Image new_img = image_rename.Image;
+            new_img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            image_rename.Image = new_img;
+           // image_rename.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+           // image_rename.Save(output, System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+
+        private void zoom_in_Click(object sender, EventArgs e)
+        {
+            // image_rename.Width = image_rename.Image.Width/100;
+            var gr = Graphics.FromImage(image_rename.Image);
+            gr.TranslateTransform(-4000, -6500);
+            gr.ScaleTransform(3.0F, 3.0F);
+            Image zoom_img=image_rename.Image;
+            Point p0 = new Point(0,0);
+            gr.DrawImage(zoom_img, p0);
+            image_rename.Image = zoom_img;
+           // Bitmap test = new Bitmap(gr);
+           // image_rename.Image = Image.FromHbitmap(gr.GetHdc());
         }
     }
 }
