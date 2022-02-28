@@ -1,7 +1,7 @@
 ﻿
 namespace LTD
 {
-    partial class Form1
+    partial class MainClass
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -40,13 +40,6 @@ namespace LTD
             this.rename_file_textbox = new System.Windows.Forms.TextBox();
             this.rename_file = new System.Windows.Forms.Button();
             this.clear_text_box = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.five_nguk_button = new System.Windows.Forms.Button();
-            this.eight_tl_button = new System.Windows.Forms.Button();
-            this.eigth_nguk_button = new System.Windows.Forms.Button();
-            this.none_nguk_button = new System.Windows.Forms.Button();
-            this.gtli_button = new System.Windows.Forms.Button();
-            this.five_tl_button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.zoom_out = new System.Windows.Forms.Button();
             this.reverse_button = new System.Windows.Forms.Button();
@@ -56,7 +49,9 @@ namespace LTD
             this.a3_scale = new System.Windows.Forms.RadioButton();
             this.a2_scale = new System.Windows.Forms.RadioButton();
             this.a1_scale = new System.Windows.Forms.RadioButton();
-            this.panel1.SuspendLayout();
+            this.added_templates = new System.Windows.Forms.Button();
+            this.templates_combobox = new System.Windows.Forms.ComboBox();
+            this.choose_templates = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +69,7 @@ namespace LTD
             // next_image
             // 
             this.next_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.next_image.Location = new System.Drawing.Point(680, 790);
+            this.next_image.Location = new System.Drawing.Point(635, 789);
             this.next_image.Name = "next_image";
             this.next_image.Size = new System.Drawing.Size(69, 68);
             this.next_image.TabIndex = 3;
@@ -174,80 +169,6 @@ namespace LTD
             this.clear_text_box.UseVisualStyleBackColor = true;
             this.clear_text_box.Click += new System.EventHandler(this.clear_text_box_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.five_nguk_button);
-            this.panel1.Controls.Add(this.eight_tl_button);
-            this.panel1.Controls.Add(this.eigth_nguk_button);
-            this.panel1.Controls.Add(this.none_nguk_button);
-            this.panel1.Controls.Add(this.gtli_button);
-            this.panel1.Controls.Add(this.five_tl_button);
-            this.panel1.Location = new System.Drawing.Point(752, 515);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(571, 257);
-            this.panel1.TabIndex = 13;
-            // 
-            // five_nguk_button
-            // 
-            this.five_nguk_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.five_nguk_button.Location = new System.Drawing.Point(455, 23);
-            this.five_nguk_button.Name = "five_nguk_button";
-            this.five_nguk_button.Size = new System.Drawing.Size(104, 52);
-            this.five_nguk_button.TabIndex = 8;
-            this.five_nguk_button.Text = "5НГЮК.";
-            this.five_nguk_button.UseVisualStyleBackColor = true;
-            // 
-            // eight_tl_button
-            // 
-            this.eight_tl_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.eight_tl_button.Location = new System.Drawing.Point(15, 91);
-            this.eight_tl_button.Name = "eight_tl_button";
-            this.eight_tl_button.Size = new System.Drawing.Size(104, 52);
-            this.eight_tl_button.TabIndex = 4;
-            this.eight_tl_button.Text = "8ТЛ.";
-            this.eight_tl_button.UseVisualStyleBackColor = true;
-            // 
-            // eigth_nguk_button
-            // 
-            this.eigth_nguk_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.eigth_nguk_button.Location = new System.Drawing.Point(345, 23);
-            this.eigth_nguk_button.Name = "eigth_nguk_button";
-            this.eigth_nguk_button.Size = new System.Drawing.Size(104, 52);
-            this.eigth_nguk_button.TabIndex = 3;
-            this.eigth_nguk_button.Text = "8НГЮК.";
-            this.eigth_nguk_button.UseVisualStyleBackColor = true;
-            // 
-            // none_nguk_button
-            // 
-            this.none_nguk_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.none_nguk_button.Location = new System.Drawing.Point(235, 23);
-            this.none_nguk_button.Name = "none_nguk_button";
-            this.none_nguk_button.Size = new System.Drawing.Size(104, 52);
-            this.none_nguk_button.TabIndex = 2;
-            this.none_nguk_button.Text = "0НГЮК.";
-            this.none_nguk_button.UseVisualStyleBackColor = true;
-            // 
-            // gtli_button
-            // 
-            this.gtli_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gtli_button.Location = new System.Drawing.Point(125, 23);
-            this.gtli_button.Name = "gtli_button";
-            this.gtli_button.Size = new System.Drawing.Size(104, 52);
-            this.gtli_button.TabIndex = 1;
-            this.gtli_button.Text = "ГТЛИ.";
-            this.gtli_button.UseVisualStyleBackColor = true;
-            // 
-            // five_tl_button
-            // 
-            this.five_tl_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.five_tl_button.Location = new System.Drawing.Point(15, 23);
-            this.five_tl_button.Name = "five_tl_button";
-            this.five_tl_button.Size = new System.Drawing.Size(104, 52);
-            this.five_tl_button.TabIndex = 0;
-            this.five_tl_button.Text = "5ТЛ.";
-            this.five_tl_button.UseVisualStyleBackColor = true;
-            this.five_tl_button.Click += new System.EventHandler(this.five_tl_button_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -262,7 +183,7 @@ namespace LTD
             // 
             this.zoom_out.Enabled = false;
             this.zoom_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.zoom_out.Location = new System.Drawing.Point(605, 790);
+            this.zoom_out.Location = new System.Drawing.Point(560, 788);
             this.zoom_out.Name = "zoom_out";
             this.zoom_out.Size = new System.Drawing.Size(69, 68);
             this.zoom_out.TabIndex = 17;
@@ -359,11 +280,45 @@ namespace LTD
             this.a1_scale.UseVisualStyleBackColor = true;
             this.a1_scale.CheckedChanged += new System.EventHandler(this.a1_scale_CheckedChanged);
             // 
-            // Form1
+            // added_templates
+            // 
+            this.added_templates.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.added_templates.Location = new System.Drawing.Point(1047, 515);
+            this.added_templates.Name = "added_templates";
+            this.added_templates.Size = new System.Drawing.Size(245, 33);
+            this.added_templates.TabIndex = 24;
+            this.added_templates.Text = "Добавить шаблон";
+            this.added_templates.UseVisualStyleBackColor = true;
+            this.added_templates.Click += new System.EventHandler(this.added_templates_Click);
+            // 
+            // templates_combobox
+            // 
+            this.templates_combobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.templates_combobox.FormattingEnabled = true;
+            this.templates_combobox.Location = new System.Drawing.Point(752, 515);
+            this.templates_combobox.Name = "templates_combobox";
+            this.templates_combobox.Size = new System.Drawing.Size(289, 33);
+            this.templates_combobox.TabIndex = 25;
+            // 
+            // choose_templates
+            // 
+            this.choose_templates.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.choose_templates.Location = new System.Drawing.Point(1047, 563);
+            this.choose_templates.Name = "choose_templates";
+            this.choose_templates.Size = new System.Drawing.Size(245, 33);
+            this.choose_templates.TabIndex = 26;
+            this.choose_templates.Text = "Выбрать шаблон";
+            this.choose_templates.UseVisualStyleBackColor = true;
+            this.choose_templates.Click += new System.EventHandler(this.choose_templates_Click);
+            // 
+            // MainClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 885);
+            this.Controls.Add(this.choose_templates);
+            this.Controls.Add(this.templates_combobox);
+            this.Controls.Add(this.added_templates);
             this.Controls.Add(this.a1_scale);
             this.Controls.Add(this.a2_scale);
             this.Controls.Add(this.a3_scale);
@@ -372,7 +327,6 @@ namespace LTD
             this.Controls.Add(this.zoom_out);
             this.Controls.Add(this.reverse_button);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.clear_text_box);
             this.Controls.Add(this.rename_file);
             this.Controls.Add(this.rename_file_textbox);
@@ -385,10 +339,9 @@ namespace LTD
             this.Controls.Add(this.next_image);
             this.Controls.Add(this.previous_image);
             this.Controls.Add(this.image_rename);
-            this.Name = "Form1";
+            this.Name = "MainClass";
             this.Text = "Архив технической документации";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.image_rename)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -409,13 +362,6 @@ namespace LTD
         private System.Windows.Forms.TextBox rename_file_textbox;
         private System.Windows.Forms.Button rename_file;
         private System.Windows.Forms.Button clear_text_box;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button five_nguk_button;
-        private System.Windows.Forms.Button eight_tl_button;
-        private System.Windows.Forms.Button eigth_nguk_button;
-        private System.Windows.Forms.Button none_nguk_button;
-        private System.Windows.Forms.Button gtli_button;
-        private System.Windows.Forms.Button five_tl_button;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button reverse_button;
         private System.Windows.Forms.Button zoom_out;
@@ -424,6 +370,9 @@ namespace LTD
         private System.Windows.Forms.RadioButton a3_scale;
         private System.Windows.Forms.RadioButton a2_scale;
         private System.Windows.Forms.RadioButton a1_scale;
+        private System.Windows.Forms.Button added_templates;
+        private System.Windows.Forms.ComboBox templates_combobox;
+        private System.Windows.Forms.Button choose_templates;
     }
 }
 

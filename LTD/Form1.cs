@@ -9,32 +9,51 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
-using System.Drawing.Drawing2D;//меняем картинку
-using System.Drawing.Imaging;//меняем картинку
+
 
 namespace LTD
 {
-    public partial class Form1 : Form
+    public partial class MainClass : Form
     {
-        public Form1()
+        public MainClass()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // MessageBox.Show("HAHA");
+            // MessageBox.Show("HAHA");
+            initCombobox();
         }
 
 
         string choosen_path; //выбранный путь до файла, без него не сможем загузрить в pictureBox
         ArrayList imglist = new ArrayList(); //храним названия наших файлов, для переключения по кнопкам
+        ArrayList templateslist = new ArrayList();
         int img_index = 0; //индекс картинки, для адекватного переключения по кнопкам
         int x_loop_coordinate; //координата в picturebox по х
         int y_loop_coordinate; //координате в picturebox по y
         int x_scale = 7;
         int y_scale = 11;
         bool loop_flag = false;
+
+
+        void initCombobox()
+        {
+            templateslist.Add("5ТЛ.");
+            templateslist.Add("8ТЛ.");
+            templateslist.Add("ГТЛИ.");
+            templateslist.Add("0НГЮК.");
+            templateslist.Add("5НГЮК.");
+            templateslist.Add("8НГЮК.");
+        }
+
+        void loadCombobox()
+        {
+            foreach (string c in templateslist)//проходим по ключам переданного словаря
+                //добавляем ключи из словаря в комбобокс (имена наших объектов )
+                templates_combobox.Items.Add(c);
+        }
 
         private void find_directoty_path_Click(object sender, EventArgs e)
         {
@@ -53,6 +72,7 @@ namespace LTD
                 if (imglist.Count > 0)
                 {                    
                     image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+                    loadCombobox();
 
                 }
                    
@@ -110,10 +130,6 @@ namespace LTD
 
         }
 
-        private void five_tl_button_Click(object sender, EventArgs e)
-        {
-            rename_file_textbox.Text = "5ТЛ.";
-        }
 
         private void clear_text_box_Click(object sender, EventArgs e)
         {
@@ -130,18 +146,10 @@ namespace LTD
             Image new_img = image_rename.Image;
             new_img.RotateFlip(RotateFlipType.Rotate90FlipNone);
             image_rename.Image = new_img;
-           // image_rename.Image.RotateFlip(RotateFlipType.Rotate90FlipNone);
-           // image_rename.Save(output, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
 
-        /* var original_image = Graphics.FromImage(image_rename.Image);
- original_image.TranslateTransform(-4000, -6500);
- original_image.ScaleTransform(3.0F, 3.0F);
- Image zoom_img=image_rename.Image;
- Point p0 = new Point(0,0);
- original_image.DrawImage(zoom_img, p0);
- image_rename.Image = zoom_img;*/
+
         private void zoom_out_Click(object sender, EventArgs e)
         {
             image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
@@ -212,6 +220,42 @@ namespace LTD
         {
             x_scale = 32;
             y_scale = 21;
+        }
+
+
+
+        private void added_templates_Click(object sender, EventArgs e)
+        {
+            string new_templates = templates_combobox.Text;
+            if (checkSameTemplates(new_templates))
+            {
+                templateslist.Add(new_templates);
+                MessageBox.Show("Успешно!", "Сообщение");
+                templates_combobox.Text = "";
+                templates_combobox.Items.Clear();
+                loadCombobox();
+            }
+            else
+            {
+                MessageBox.Show("Такой шаблон уже существует!", "Предупреждение");
+            }
+
+        }
+
+        private void choose_templates_Click(object sender, EventArgs e)
+        {
+            string selected_templates = Convert.ToString(templates_combobox.SelectedItem);
+            rename_file_textbox.Text = selected_templates;
+        }
+
+        bool checkSameTemplates(string new_temp)
+        {
+            foreach (string c in templateslist)
+            {
+                if (c == new_temp)
+                    return false;
+            }
+            return true;
         }
     }
 }
