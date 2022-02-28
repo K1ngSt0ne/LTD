@@ -29,9 +29,7 @@ namespace LTD
         /// </summary>
         private void InitializeComponent()
         {
-            this.image_rename = new System.Windows.Forms.PictureBox();
             this.previous_image = new System.Windows.Forms.Button();
-            this.opennewwindow = new System.Windows.Forms.Button();
             this.next_image = new System.Windows.Forms.Button();
             this.exit_button = new System.Windows.Forms.Button();
             this.list_of_files = new System.Windows.Forms.ListBox();
@@ -50,54 +48,37 @@ namespace LTD
             this.gtli_button = new System.Windows.Forms.Button();
             this.five_tl_button = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.reverse_button = new System.Windows.Forms.Button();
-            this.zoom_in = new System.Windows.Forms.Button();
             this.zoom_out = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
+            this.reverse_button = new System.Windows.Forms.Button();
+            this.image_rename = new System.Windows.Forms.PictureBox();
+            this.loop_enabled = new System.Windows.Forms.Button();
+            this.a4_scale = new System.Windows.Forms.RadioButton();
+            this.a3_scale = new System.Windows.Forms.RadioButton();
+            this.a2_scale = new System.Windows.Forms.RadioButton();
+            this.a1_scale = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
             this.SuspendLayout();
-            // 
-            // image_rename
-            // 
-            this.image_rename.Location = new System.Drawing.Point(46, 23);
-            this.image_rename.Name = "image_rename";
-            this.image_rename.Size = new System.Drawing.Size(658, 749);
-            this.image_rename.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.image_rename.TabIndex = 0;
-            this.image_rename.TabStop = false;
-            this.image_rename.Click += new System.EventHandler(this.image_rename_Click);
-            this.image_rename.MouseMove += new System.Windows.Forms.MouseEventHandler(this.zoom_coordinate);
             // 
             // previous_image
             // 
-            this.previous_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.previous_image.Location = new System.Drawing.Point(46, 796);
+            this.previous_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.previous_image.Location = new System.Drawing.Point(46, 788);
             this.previous_image.Name = "previous_image";
-            this.previous_image.Size = new System.Drawing.Size(156, 68);
+            this.previous_image.Size = new System.Drawing.Size(69, 68);
             this.previous_image.TabIndex = 1;
-            this.previous_image.Text = "Предущее изображение";
+            this.previous_image.Text = "<";
             this.previous_image.UseVisualStyleBackColor = true;
             this.previous_image.Click += new System.EventHandler(this.previous_image_Click);
             // 
-            // opennewwindow
-            // 
-            this.opennewwindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.opennewwindow.Location = new System.Drawing.Point(208, 796);
-            this.opennewwindow.Name = "opennewwindow";
-            this.opennewwindow.Size = new System.Drawing.Size(158, 68);
-            this.opennewwindow.TabIndex = 2;
-            this.opennewwindow.Text = "Открыть в новом окне";
-            this.opennewwindow.UseVisualStyleBackColor = true;
-            this.opennewwindow.Click += new System.EventHandler(this.opennewwindow_Click);
-            // 
             // next_image
             // 
-            this.next_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.next_image.Location = new System.Drawing.Point(553, 796);
+            this.next_image.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.next_image.Location = new System.Drawing.Point(680, 790);
             this.next_image.Name = "next_image";
-            this.next_image.Size = new System.Drawing.Size(151, 68);
+            this.next_image.Size = new System.Drawing.Size(69, 68);
             this.next_image.TabIndex = 3;
-            this.next_image.Text = "Следующее изображение";
+            this.next_image.Text = ">";
             this.next_image.UseVisualStyleBackColor = true;
             this.next_image.Click += new System.EventHandler(this.next_image_Click);
             // 
@@ -277,32 +258,11 @@ namespace LTD
             this.label4.TabIndex = 14;
             this.label4.Text = "Шаблоны";
             // 
-            // reverse_button
-            // 
-            this.reverse_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.reverse_button.Location = new System.Drawing.Point(389, 796);
-            this.reverse_button.Name = "reverse_button";
-            this.reverse_button.Size = new System.Drawing.Size(158, 68);
-            this.reverse_button.TabIndex = 15;
-            this.reverse_button.Text = "Повернуть на 90 градусов";
-            this.reverse_button.UseVisualStyleBackColor = true;
-            this.reverse_button.Click += new System.EventHandler(this.reverse_button_Click);
-            // 
-            // zoom_in
-            // 
-            this.zoom_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.zoom_in.Location = new System.Drawing.Point(752, 796);
-            this.zoom_in.Name = "zoom_in";
-            this.zoom_in.Size = new System.Drawing.Size(69, 68);
-            this.zoom_in.TabIndex = 16;
-            this.zoom_in.Text = "+";
-            this.zoom_in.UseVisualStyleBackColor = true;
-            this.zoom_in.Click += new System.EventHandler(this.zoom_in_Click);
-            // 
             // zoom_out
             // 
+            this.zoom_out.Enabled = false;
             this.zoom_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.zoom_out.Location = new System.Drawing.Point(839, 796);
+            this.zoom_out.Location = new System.Drawing.Point(605, 790);
             this.zoom_out.Name = "zoom_out";
             this.zoom_out.Size = new System.Drawing.Size(69, 68);
             this.zoom_out.TabIndex = 17;
@@ -310,13 +270,106 @@ namespace LTD
             this.zoom_out.UseVisualStyleBackColor = true;
             this.zoom_out.Click += new System.EventHandler(this.zoom_out_Click);
             // 
+            // reverse_button
+            // 
+            this.reverse_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.reverse_button.Location = new System.Drawing.Point(121, 789);
+            this.reverse_button.Name = "reverse_button";
+            this.reverse_button.Size = new System.Drawing.Size(70, 68);
+            this.reverse_button.TabIndex = 15;
+            this.reverse_button.Text = "↺";
+            this.reverse_button.UseVisualStyleBackColor = true;
+            this.reverse_button.Click += new System.EventHandler(this.reverse_button_Click);
+            // 
+            // image_rename
+            // 
+            this.image_rename.Location = new System.Drawing.Point(46, 23);
+            this.image_rename.Name = "image_rename";
+            this.image_rename.Size = new System.Drawing.Size(658, 749);
+            this.image_rename.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.image_rename.TabIndex = 0;
+            this.image_rename.TabStop = false;
+            this.image_rename.Click += new System.EventHandler(this.image_rename_Click);
+            this.image_rename.MouseMove += new System.Windows.Forms.MouseEventHandler(this.zoom_coordinate);
+            // 
+            // loop_enabled
+            // 
+            this.loop_enabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loop_enabled.Location = new System.Drawing.Point(197, 790);
+            this.loop_enabled.Name = "loop_enabled";
+            this.loop_enabled.Size = new System.Drawing.Size(70, 66);
+            this.loop_enabled.TabIndex = 19;
+            this.loop_enabled.Text = "🔍";
+            this.loop_enabled.UseVisualStyleBackColor = true;
+            this.loop_enabled.Click += new System.EventHandler(this.loop_enabled_Click);
+            // 
+            // a4_scale
+            // 
+            this.a4_scale.AutoSize = true;
+            this.a4_scale.Enabled = false;
+            this.a4_scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.a4_scale.Location = new System.Drawing.Point(290, 788);
+            this.a4_scale.Name = "a4_scale";
+            this.a4_scale.Size = new System.Drawing.Size(82, 46);
+            this.a4_scale.TabIndex = 20;
+            this.a4_scale.TabStop = true;
+            this.a4_scale.Text = "А4";
+            this.a4_scale.UseVisualStyleBackColor = true;
+            this.a4_scale.CheckedChanged += new System.EventHandler(this.a4_scale_CheckedChanged);
+            // 
+            // a3_scale
+            // 
+            this.a3_scale.AutoSize = true;
+            this.a3_scale.Enabled = false;
+            this.a3_scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.a3_scale.Location = new System.Drawing.Point(378, 790);
+            this.a3_scale.Name = "a3_scale";
+            this.a3_scale.Size = new System.Drawing.Size(82, 46);
+            this.a3_scale.TabIndex = 21;
+            this.a3_scale.TabStop = true;
+            this.a3_scale.Text = "А3";
+            this.a3_scale.UseVisualStyleBackColor = true;
+            this.a3_scale.CheckedChanged += new System.EventHandler(this.a3_scale_CheckedChanged);
+            // 
+            // a2_scale
+            // 
+            this.a2_scale.AutoSize = true;
+            this.a2_scale.Enabled = false;
+            this.a2_scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.a2_scale.Location = new System.Drawing.Point(290, 840);
+            this.a2_scale.Name = "a2_scale";
+            this.a2_scale.Size = new System.Drawing.Size(82, 46);
+            this.a2_scale.TabIndex = 22;
+            this.a2_scale.TabStop = true;
+            this.a2_scale.Text = "А2";
+            this.a2_scale.UseVisualStyleBackColor = true;
+            this.a2_scale.CheckedChanged += new System.EventHandler(this.a2_scale_CheckedChanged);
+            // 
+            // a1_scale
+            // 
+            this.a1_scale.AutoSize = true;
+            this.a1_scale.Enabled = false;
+            this.a1_scale.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.a1_scale.Location = new System.Drawing.Point(378, 840);
+            this.a1_scale.Name = "a1_scale";
+            this.a1_scale.Size = new System.Drawing.Size(82, 46);
+            this.a1_scale.TabIndex = 23;
+            this.a1_scale.TabStop = true;
+            this.a1_scale.Text = "А1";
+            this.a1_scale.UseVisualStyleBackColor = true;
+            this.a1_scale.CheckedChanged += new System.EventHandler(this.a1_scale_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 885);
+            this.Controls.Add(this.a1_scale);
+            this.Controls.Add(this.a2_scale);
+            this.Controls.Add(this.a3_scale);
+            this.Controls.Add(this.a4_scale);
+            this.Controls.Add(this.loop_enabled);
             this.Controls.Add(this.zoom_out);
-            this.Controls.Add(this.zoom_in);
             this.Controls.Add(this.reverse_button);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
@@ -330,14 +383,13 @@ namespace LTD
             this.Controls.Add(this.list_of_files);
             this.Controls.Add(this.exit_button);
             this.Controls.Add(this.next_image);
-            this.Controls.Add(this.opennewwindow);
             this.Controls.Add(this.previous_image);
             this.Controls.Add(this.image_rename);
             this.Name = "Form1";
             this.Text = "Архив технической документации";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.image_rename)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,7 +399,6 @@ namespace LTD
 
         private System.Windows.Forms.PictureBox image_rename;
         private System.Windows.Forms.Button previous_image;
-        private System.Windows.Forms.Button opennewwindow;
         private System.Windows.Forms.Button next_image;
         private System.Windows.Forms.Button exit_button;
         private System.Windows.Forms.ListBox list_of_files;
@@ -367,8 +418,12 @@ namespace LTD
         private System.Windows.Forms.Button five_tl_button;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button reverse_button;
-        private System.Windows.Forms.Button zoom_in;
         private System.Windows.Forms.Button zoom_out;
+        private System.Windows.Forms.Button loop_enabled;
+        private System.Windows.Forms.RadioButton a4_scale;
+        private System.Windows.Forms.RadioButton a3_scale;
+        private System.Windows.Forms.RadioButton a2_scale;
+        private System.Windows.Forms.RadioButton a1_scale;
     }
 }
 

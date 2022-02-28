@@ -32,7 +32,9 @@ namespace LTD
         int img_index = 0; //индекс картинки, для адекватного переключения по кнопкам
         int x_loop_coordinate; //координата в picturebox по х
         int y_loop_coordinate; //координате в picturebox по y
-
+        int x_scale = 7;
+        int y_scale = 11;
+        bool loop_flag = false;
 
         private void find_directoty_path_Click(object sender, EventArgs e)
         {
@@ -132,44 +134,84 @@ namespace LTD
            // image_rename.Save(output, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
-        private void zoom_in_Click(object sender, EventArgs e)
-        {
-            var original_image = Graphics.FromImage(image_rename.Image);
-            original_image.TranslateTransform(-4000, -6500);
-            original_image.ScaleTransform(3.0F, 3.0F);
-            Image zoom_img=image_rename.Image;
-            Point p0 = new Point(0,0);
-            original_image.DrawImage(zoom_img, p0);
-            image_rename.Image = zoom_img;
-        }
 
+        /* var original_image = Graphics.FromImage(image_rename.Image);
+ original_image.TranslateTransform(-4000, -6500);
+ original_image.ScaleTransform(3.0F, 3.0F);
+ Image zoom_img=image_rename.Image;
+ Point p0 = new Point(0,0);
+ original_image.DrawImage(zoom_img, p0);
+ image_rename.Image = zoom_img;*/
         private void zoom_out_Click(object sender, EventArgs e)
         {
             image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
         }
 
-
-
-        private void opennewwindow_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void image_rename_Click(object sender, EventArgs e)
         {
-            var original_image = Graphics.FromImage(image_rename.Image);
-            original_image.TranslateTransform(-x_loop_coordinate, -y_loop_coordinate);
-            original_image.ScaleTransform(3.0F, 3.0F);
-            Image zoom_img = image_rename.Image;
-            Point p0 = new Point(0, 0);
-            original_image.DrawImage(zoom_img, p0);
-            image_rename.Image = zoom_img;
+            if (loop_flag)
+            {
+                var original_image = Graphics.FromImage(image_rename.Image);
+                original_image.TranslateTransform(-x_loop_coordinate, -y_loop_coordinate);
+                original_image.ScaleTransform(3.0F, 3.0F);
+                Image zoom_img = image_rename.Image;
+                Point p0 = new Point(0, 0);
+                original_image.DrawImage(zoom_img, p0);
+                image_rename.Image = zoom_img;
+            }
+
         }
 
         private void zoom_coordinate(object sender, MouseEventArgs e)
         {
-            x_loop_coordinate = e.X*7;
-            y_loop_coordinate = e.Y*11;
+            x_loop_coordinate = e.X*x_scale;
+            y_loop_coordinate = e.Y*y_scale;
+        }
+        //для 3.0F e.X*7; e.Y*11
+        private void loop_enabled_Click(object sender, EventArgs e)
+        {
+            if (!loop_flag)
+            {
+                loop_flag = true;
+                a4_scale.Enabled = true;
+                a3_scale.Enabled = true;
+                a2_scale.Enabled = true;
+                a1_scale.Enabled = true;
+                zoom_out.Enabled = true;
+            }
+            else
+            {
+                loop_flag = false;
+                a4_scale.Enabled = false;
+                a3_scale.Enabled = false;
+                a2_scale.Enabled = false;
+                a1_scale.Enabled = false;
+                zoom_out.Enabled = false;
+            }
+        }
+
+        private void a4_scale_CheckedChanged(object sender, EventArgs e)
+        {
+            x_scale = 7;
+            y_scale = 11;
+        }
+
+        private void a3_scale_CheckedChanged(object sender, EventArgs e)
+        {
+            x_scale = 16;
+            y_scale = 11;
+        }
+
+        private void a2_scale_CheckedChanged(object sender, EventArgs e)
+        {
+            x_scale = 24;
+            y_scale = 11;
+        }
+
+        private void a1_scale_CheckedChanged(object sender, EventArgs e)
+        {
+            x_scale = 32;
+            y_scale = 21;
         }
     }
 }
