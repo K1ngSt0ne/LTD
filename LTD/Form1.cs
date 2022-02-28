@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
+using System.Drawing.Drawing2D;//меняем картинку
+using System.Drawing.Imaging;//меняем картинку
 
 namespace LTD
 {
@@ -28,6 +30,8 @@ namespace LTD
         string choosen_path; //выбранный путь до файла, без него не сможем загузрить в pictureBox
         ArrayList imglist = new ArrayList(); //храним названия наших файлов, для переключения по кнопкам
         int img_index = 0; //индекс картинки, для адекватного переключения по кнопкам
+        int x_loop_coordinate; //координата в picturebox по х
+        int y_loop_coordinate; //координате в picturebox по y
 
 
         private void find_directoty_path_Click(object sender, EventArgs e)
@@ -44,9 +48,14 @@ namespace LTD
                     list_of_files.Items.Add(fi.ToString());
                     imglist.Add(fi.ToString());
                 }
-                if (imglist.Count>0)
-                    image_rename.Image=LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+                if (imglist.Count > 0)
+                {                    
+                    image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+
+                }
+                   
             }
+            
         }
 
         private void list_of_files_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +64,7 @@ namespace LTD
             img_index = list_of_files.SelectedIndex;
             string selectedImage = choosen_path+ "\\" + list_of_files.SelectedItem.ToString();
             image_rename.Image = LoadImg(selectedImage);
+
         }
         private Image LoadImg(string image_name)
         {
@@ -70,16 +80,17 @@ namespace LTD
 
         private void next_image_Click(object sender, EventArgs e)
         {
-            if (img_index + 1 > imglist.Count-1)
+            if (img_index + 1 > imglist.Count - 1)
             {
                 img_index = 0;
                 image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
             }
             else
             {
-                img_index = img_index+1;
+                img_index = img_index + 1;
                 image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
             }
+
         }
 
         private void previous_image_Click(object sender, EventArgs e)
@@ -94,6 +105,7 @@ namespace LTD
                 img_index = img_index - 1;
                 image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
             }
+
         }
 
         private void five_tl_button_Click(object sender, EventArgs e)
@@ -122,16 +134,42 @@ namespace LTD
 
         private void zoom_in_Click(object sender, EventArgs e)
         {
-            // image_rename.Width = image_rename.Image.Width/100;
-            var gr = Graphics.FromImage(image_rename.Image);
-            gr.TranslateTransform(-4000, -6500);
-            gr.ScaleTransform(3.0F, 3.0F);
+            var original_image = Graphics.FromImage(image_rename.Image);
+            original_image.TranslateTransform(-4000, -6500);
+            original_image.ScaleTransform(3.0F, 3.0F);
             Image zoom_img=image_rename.Image;
             Point p0 = new Point(0,0);
-            gr.DrawImage(zoom_img, p0);
+            original_image.DrawImage(zoom_img, p0);
             image_rename.Image = zoom_img;
-           // Bitmap test = new Bitmap(gr);
-           // image_rename.Image = Image.FromHbitmap(gr.GetHdc());
+        }
+
+        private void zoom_out_Click(object sender, EventArgs e)
+        {
+            image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+        }
+
+
+
+        private void opennewwindow_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void image_rename_Click(object sender, EventArgs e)
+        {
+            var original_image = Graphics.FromImage(image_rename.Image);
+            original_image.TranslateTransform(-x_loop_coordinate, -y_loop_coordinate);
+            original_image.ScaleTransform(3.0F, 3.0F);
+            Image zoom_img = image_rename.Image;
+            Point p0 = new Point(0, 0);
+            original_image.DrawImage(zoom_img, p0);
+            image_rename.Image = zoom_img;
+        }
+
+        private void zoom_coordinate(object sender, MouseEventArgs e)
+        {
+            x_loop_coordinate = e.X*7;
+            y_loop_coordinate = e.Y*11;
         }
     }
 }

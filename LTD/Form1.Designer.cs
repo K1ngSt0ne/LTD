@@ -52,6 +52,7 @@ namespace LTD
             this.label4 = new System.Windows.Forms.Label();
             this.reverse_button = new System.Windows.Forms.Button();
             this.zoom_in = new System.Windows.Forms.Button();
+            this.zoom_out = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +65,8 @@ namespace LTD
             this.image_rename.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.image_rename.TabIndex = 0;
             this.image_rename.TabStop = false;
+            this.image_rename.Click += new System.EventHandler(this.image_rename_Click);
+            this.image_rename.MouseMove += new System.Windows.Forms.MouseEventHandler(this.zoom_coordinate);
             // 
             // previous_image
             // 
@@ -85,6 +88,7 @@ namespace LTD
             this.opennewwindow.TabIndex = 2;
             this.opennewwindow.Text = "Открыть в новом окне";
             this.opennewwindow.UseVisualStyleBackColor = true;
+            this.opennewwindow.Click += new System.EventHandler(this.opennewwindow_Click);
             // 
             // next_image
             // 
@@ -286,7 +290,7 @@ namespace LTD
             // 
             // zoom_in
             // 
-            this.zoom_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.zoom_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.zoom_in.Location = new System.Drawing.Point(752, 796);
             this.zoom_in.Name = "zoom_in";
             this.zoom_in.Size = new System.Drawing.Size(69, 68);
@@ -295,11 +299,23 @@ namespace LTD
             this.zoom_in.UseVisualStyleBackColor = true;
             this.zoom_in.Click += new System.EventHandler(this.zoom_in_Click);
             // 
+            // zoom_out
+            // 
+            this.zoom_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.zoom_out.Location = new System.Drawing.Point(839, 796);
+            this.zoom_out.Name = "zoom_out";
+            this.zoom_out.Size = new System.Drawing.Size(69, 68);
+            this.zoom_out.TabIndex = 17;
+            this.zoom_out.Text = "-";
+            this.zoom_out.UseVisualStyleBackColor = true;
+            this.zoom_out.Click += new System.EventHandler(this.zoom_out_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 885);
+            this.Controls.Add(this.zoom_out);
             this.Controls.Add(this.zoom_in);
             this.Controls.Add(this.reverse_button);
             this.Controls.Add(this.label4);
@@ -352,6 +368,7 @@ namespace LTD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button reverse_button;
         private System.Windows.Forms.Button zoom_in;
+        private System.Windows.Forms.Button zoom_out;
     }
 }
 
