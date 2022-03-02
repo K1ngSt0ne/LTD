@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Collections;
-
+using Microsoft.VisualBasic;
 
 namespace LTD
 {
@@ -20,6 +20,8 @@ namespace LTD
             InitializeComponent();
         }
 
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             // MessageBox.Show("HAHA");
@@ -28,6 +30,7 @@ namespace LTD
 
 
         string choosen_path; //выбранный путь до файла, без него не сможем загузрить в pictureBox
+        string new_folder_path_choose;
         ArrayList imglist = new ArrayList(); //храним названия наших файлов, для переключения по кнопкам
         ArrayList templateslist = new ArrayList();
         int img_index = 0; //индекс картинки, для адекватного переключения по кнопкам
@@ -61,31 +64,41 @@ namespace LTD
             if (FBD.ShowDialog() == DialogResult.OK)
             {
                 //MessageBox.Show(FBD.SelectedPath);
-                DirectoryInfo dir = new DirectoryInfo(FBD.SelectedPath);
-                choosen_path=dir.ToString();
-                FileInfo[] files = dir.GetFiles("*.jpg");
-                foreach (FileInfo fi in files)
-                {
-                    list_of_files.Items.Add(fi.ToString());
-                    imglist.Add(fi.ToString());
-                }
-                if (imglist.Count > 0)
-                {                    
-                    image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
-                    loadCombobox();
-
-                }
+                load_listbox_files(FBD.SelectedPath);
                    
             }
             
         }
-
+        void load_listbox_files(string path)
+        {
+            DirectoryInfo dir = new DirectoryInfo(path);
+            choosen_path = dir.ToString();
+            FileInfo[] files = dir.GetFiles("*.jpg");
+            foreach (FileInfo fi in files)
+            {
+                list_of_files.Items.Add(fi.ToString());
+                imglist.Add(fi.ToString());
+            }
+            if (imglist.Count > 0)
+            {                
+                image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+                loadCombobox();
+            }
+        }
         private void list_of_files_SelectedIndexChanged(object sender, EventArgs e)
         {
             //у выбранного элепмента будет индекс. По нему можно узнать куда переключаться. По умолчанию индекс будет 0
-            img_index = list_of_files.SelectedIndex;
-            string selectedImage = choosen_path+ "\\" + list_of_files.SelectedItem.ToString();
-            image_rename.Image = LoadImg(selectedImage);
+            try
+            {
+                img_index = list_of_files.SelectedIndex;
+                string selectedImage = choosen_path + "\\" + list_of_files.SelectedItem.ToString();
+                image_rename.Image = LoadImg(selectedImage);
+            }
+            catch
+            {
+                img_index = imglist.Count - 1;
+            }
+
 
         }
         private Image LoadImg(string image_name)
@@ -138,7 +151,7 @@ namespace LTD
 
         private void exit_button_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void reverse_button_Click(object sender, EventArgs e)
@@ -152,7 +165,8 @@ namespace LTD
 
         private void zoom_out_Click(object sender, EventArgs e)
         {
-            image_rename.Image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            Image load_image = LoadImg(choosen_path + "\\" + imglist[img_index].ToString());
+            image_rename.Image = load_image;
         }
 
         private void image_rename_Click(object sender, EventArgs e)
@@ -256,6 +270,54 @@ namespace LTD
                     return false;
             }
             return true;
+        }
+
+        private void rename_file_Click(object sender, EventArgs e)
+        {
+            if (new_folder_path_choose == "")
+            {
+                MessageBox.Show("Вы не выбрали директорию сохранения файлов!");
+            }
+            else
+            {
+                string oldImageName = choosen_path + "\\" + imglist[img_index].ToString();
+                string newImageName = new_folder_path_choose + "\\" + rename_file_textbox.Text + ".jpg";
+                File.Copy(oldImageName, newImageName);
+                list_of_files.Items.RemoveAt(img_index);
+                imglist.RemoveAt(img_index);
+                int last_index = img_index;
+                img_index++;
+                if ((img_index > imglist.Count) && (list_of_files.Items.Count == 0))
+                {
+                    MessageBox.Show("Файлы закончились! Отличная работа!");
+                    image_rename.Image = null;
+                }
+
+                else if ((img_index > imglist.Count) && (list_of_files.Items.Count != 0))
+                {
+                    image_rename.Image = LoadImg(choosen_path + "\\" + imglist[0].ToString());
+                    img_index = 0;
+                }
+
+                else
+                {
+                    image_rename.Image = LoadImg(choosen_path + "\\" + imglist[last_index].ToString());
+                    img_index = last_index;
+                }
+            }
+           
+
+        }
+
+        private void new_folder_find_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog FBD = new FolderBrowserDialog();
+            if (FBD.ShowDialog() == DialogResult.OK)
+            {
+                new_folder_path.Text = FBD.SelectedPath;
+                DirectoryInfo dir = new DirectoryInfo(FBD.SelectedPath);
+                new_folder_path_choose = dir.ToString();
+            }
         }
     }
 }

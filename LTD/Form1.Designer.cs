@@ -52,6 +52,11 @@ namespace LTD
             this.added_templates = new System.Windows.Forms.Button();
             this.templates_combobox = new System.Windows.Forms.ComboBox();
             this.choose_templates = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.new_folder_path = new System.Windows.Forms.Label();
+            this.new_folder_find = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.image_rename)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +100,7 @@ namespace LTD
             this.list_of_files.ItemHeight = 24;
             this.list_of_files.Location = new System.Drawing.Point(735, 23);
             this.list_of_files.Name = "list_of_files";
-            this.list_of_files.Size = new System.Drawing.Size(382, 196);
+            this.list_of_files.Size = new System.Drawing.Size(382, 220);
             this.list_of_files.TabIndex = 5;
             this.list_of_files.SelectedIndexChanged += new System.EventHandler(this.list_of_files_SelectedIndexChanged);
             // 
@@ -122,9 +127,9 @@ namespace LTD
             // find_directoty_path
             // 
             this.find_directoty_path.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.find_directoty_path.Location = new System.Drawing.Point(1166, 114);
+            this.find_directoty_path.Location = new System.Drawing.Point(1152, 92);
             this.find_directoty_path.Name = "find_directoty_path";
-            this.find_directoty_path.Size = new System.Drawing.Size(150, 37);
+            this.find_directoty_path.Size = new System.Drawing.Size(164, 37);
             this.find_directoty_path.TabIndex = 8;
             this.find_directoty_path.Text = "Обзор...";
             this.find_directoty_path.UseVisualStyleBackColor = true;
@@ -134,7 +139,7 @@ namespace LTD
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(906, 324);
+            this.label3.Location = new System.Drawing.Point(731, 392);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(262, 24);
             this.label3.TabIndex = 9;
@@ -143,7 +148,7 @@ namespace LTD
             // rename_file_textbox
             // 
             this.rename_file_textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rename_file_textbox.Location = new System.Drawing.Point(735, 365);
+            this.rename_file_textbox.Location = new System.Drawing.Point(735, 430);
             this.rename_file_textbox.Name = "rename_file_textbox";
             this.rename_file_textbox.Size = new System.Drawing.Size(607, 29);
             this.rename_file_textbox.TabIndex = 10;
@@ -151,17 +156,18 @@ namespace LTD
             // rename_file
             // 
             this.rename_file.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rename_file.Location = new System.Drawing.Point(1166, 411);
+            this.rename_file.Location = new System.Drawing.Point(1166, 474);
             this.rename_file.Name = "rename_file";
             this.rename_file.Size = new System.Drawing.Size(176, 54);
             this.rename_file.TabIndex = 11;
             this.rename_file.Text = "Переименовать";
             this.rename_file.UseVisualStyleBackColor = true;
+            this.rename_file.Click += new System.EventHandler(this.rename_file_Click);
             // 
             // clear_text_box
             // 
             this.clear_text_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clear_text_box.Location = new System.Drawing.Point(1000, 411);
+            this.clear_text_box.Location = new System.Drawing.Point(1009, 474);
             this.clear_text_box.Name = "clear_text_box";
             this.clear_text_box.Size = new System.Drawing.Size(143, 54);
             this.clear_text_box.TabIndex = 12;
@@ -173,7 +179,7 @@ namespace LTD
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(748, 475);
+            this.label4.Location = new System.Drawing.Point(739, 539);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 24);
             this.label4.TabIndex = 14;
@@ -283,7 +289,7 @@ namespace LTD
             // added_templates
             // 
             this.added_templates.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.added_templates.Location = new System.Drawing.Point(1047, 515);
+            this.added_templates.Location = new System.Drawing.Point(1047, 576);
             this.added_templates.Name = "added_templates";
             this.added_templates.Size = new System.Drawing.Size(245, 33);
             this.added_templates.TabIndex = 24;
@@ -295,7 +301,7 @@ namespace LTD
             // 
             this.templates_combobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.templates_combobox.FormattingEnabled = true;
-            this.templates_combobox.Location = new System.Drawing.Point(752, 515);
+            this.templates_combobox.Location = new System.Drawing.Point(743, 576);
             this.templates_combobox.Name = "templates_combobox";
             this.templates_combobox.Size = new System.Drawing.Size(289, 33);
             this.templates_combobox.TabIndex = 25;
@@ -303,7 +309,7 @@ namespace LTD
             // choose_templates
             // 
             this.choose_templates.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.choose_templates.Location = new System.Drawing.Point(1047, 563);
+            this.choose_templates.Location = new System.Drawing.Point(1047, 635);
             this.choose_templates.Name = "choose_templates";
             this.choose_templates.Size = new System.Drawing.Size(245, 33);
             this.choose_templates.TabIndex = 26;
@@ -311,11 +317,67 @@ namespace LTD
             this.choose_templates.UseVisualStyleBackColor = true;
             this.choose_templates.Click += new System.EventHandler(this.choose_templates_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(730, 282);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(278, 50);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Путь сохранения\r\nпереименованных файлов";
+            // 
+            // new_folder_path
+            // 
+            this.new_folder_path.AutoSize = true;
+            this.new_folder_path.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.new_folder_path.Location = new System.Drawing.Point(1042, 295);
+            this.new_folder_path.Name = "new_folder_path";
+            this.new_folder_path.Size = new System.Drawing.Size(18, 25);
+            this.new_folder_path.TabIndex = 28;
+            this.new_folder_path.Text = ".";
+            // 
+            // new_folder_find
+            // 
+            this.new_folder_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.new_folder_find.Location = new System.Drawing.Point(1152, 195);
+            this.new_folder_find.Name = "new_folder_find";
+            this.new_folder_find.Size = new System.Drawing.Size(164, 37);
+            this.new_folder_find.TabIndex = 29;
+            this.new_folder_find.Text = "Обзор...";
+            this.new_folder_find.UseVisualStyleBackColor = true;
+            this.new_folder_find.Click += new System.EventHandler(this.new_folder_find_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(1126, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(216, 24);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Выберите директорию";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(1148, 168);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(175, 24);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "для новых файлов";
+            // 
             // MainClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 885);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.new_folder_find);
+            this.Controls.Add(this.new_folder_path);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.choose_templates);
             this.Controls.Add(this.templates_combobox);
             this.Controls.Add(this.added_templates);
@@ -373,6 +435,11 @@ namespace LTD
         private System.Windows.Forms.Button added_templates;
         private System.Windows.Forms.ComboBox templates_combobox;
         private System.Windows.Forms.Button choose_templates;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label new_folder_path;
+        private System.Windows.Forms.Button new_folder_find;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
